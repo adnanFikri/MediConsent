@@ -69,4 +69,4 @@
 <script src="files/bootstrap.min.js"></script>
 
 
-<input type="text" name="age" answer='19'>
+{{-- <input type="text" name="age" answer='19'> --}}

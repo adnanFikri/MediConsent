@@ -17,15 +17,67 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <style>
+        body{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        /* Start title style  */
+
+        /* title text  */
+        .eleven h1
+        {
+            font-size:30px;
+            text-align:center;
+            line-height:1.5em;
+            padding-bottom:45px;
+            font-family:"Playfair Display", serif;
+            text-transform:uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color:#e9e9e9;
+            /* color:rgb(26, 25, 25); */
+            margin-top: 90px;
+            margin-left: -20px;
+            text-shadow: 2px 2px 5px rgba(253, 76, 76, 0.501);
+        }
+
+        /* bar */
+        .eleven h1:before
+        {
+            position: absolute;
+            left: 0;
+            bottom: 243px;
+            width: 60%;
+            left:50%; margin-left:-30%;
+            height: 2px;
+            content: "";
+            background-color: #777; z-index: 4;
+        }
+
+        /* icon */
+        .eleven h1:after
+        {
+            position: relative;
+            width:40px; height:40px; left:50%; margin-left:-20px; bottom:0px;
+            content: '\00a7'; font-size:40px; line-height:40px; color:#c50000;
+            font-weight:400; z-index: 5;
+            display:block;
+            background-color:rgb(64,190,174);
+        }
+
+        /* End title style  */
+
+
         .button2 {
             display: inline-block;
-            transition: all .3s ease-in;
+            transition: all .5s ease-in-out;
             position: relative;
             overflow: hidden;
             z-index: 1;
             color: #2a2929;
-            padding: 0.5em 1.5em;
+            padding: 0.5em 1.1em;
             font-size: 18px;
+            font-weight: 600;
             border-radius: 0.5em;
             background: #d1cece;
             border: 1px solid #e8e8e8;
@@ -49,7 +101,7 @@
             background-color: rgba(0, 0, 0, 0.05);
             border-radius: 50%;
             display: block;
-            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 1, 0.1, 1);
             z-index: -1;
         }
 
@@ -64,7 +116,7 @@
             background-color: #009087;
             border-radius: 50%;
             display: block;
-            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            transition: all .5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
             z-index: -1;
         }
 
@@ -147,13 +199,19 @@
         <div class="col-md-2"></div>
         <div class="col-md-6">
 
+            {{-- title of page  --}}
+            <div class="eleven">
+                <h1>Medical Treatment Authorization Test</h1>
+            </div>
+            {{-- title of page  --}}
+
 
         </div>
         <div class="col-md-4 " style="padding-top: 60vh">
             @if (Auth::user())
                 @if (Auth::user()->Admin == true)
                     <a href="/questions"><button style="width:130px;" class="button2">Questions </button></a>
-                    <a href="/dashboard/users"><button style="width:130px;" class="button2">Dashboard </button></a>
+                    <a href="/dashboard/users"><button style="width:130px; " class="button2 text-center">Dashboard</button></a>
                 @endif
             @endif
 
